@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jared Boardman | Portfolio 2025</title>
+    <title>Jared Boardman | Architecture Portfolio 2025</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -14,7 +14,6 @@
             --white: #ffffff;
             --gray: #666666;
             --light-gray: #f5f5f5;
-            --accent: #2DD512;
         }
 
         html { scroll-behavior: smooth; }
@@ -31,7 +30,7 @@
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
-            padding: 24px 40px;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -40,15 +39,34 @@
             backdrop-filter: blur(20px);
         }
 
-        .logo {
-            font-size: 18px;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        .brand__mark {
+            width: 40px;
+            height: 40px;
+            background: var(--black);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .brand__name {
+            font-size: 16px;
             font-weight: 600;
-            letter-spacing: -0.5px;
         }
 
         .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 32px;
             list-style: none;
         }
 
@@ -62,326 +80,319 @@
 
         .nav-links a:hover { opacity: 0.6; }
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
+        .header-cta {
+            padding: 10px 20px;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: opacity 0.3s;
         }
 
+        .header-cta:hover { opacity: 0.8; }
+
         @media (max-width: 768px) {
-            nav { padding: 20px 24px; }
+            nav { padding: 16px 24px; }
             .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
+            .brand__name { display: none; }
         }
 
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
             padding: 120px 40px 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
             max-width: 1400px;
             margin: 0 auto;
-            width: 100%;
+            align-items: center;
         }
 
-        .hero-title {
-            font-size: clamp(48px, 12vw, 140px);
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            line-height: 0.9;
-            margin-bottom: 40px;
-            transform: rotate(-5deg);
-            transform-origin: left center;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(18px, 3vw, 24px);
-            font-weight: 400;
-            color: var(--gray);
+        .hero__copy {
             max-width: 600px;
-            margin-bottom: 60px;
         }
 
-        .hero-meta {
-            display: flex;
-            gap: 60px;
-            flex-wrap: wrap;
-        }
-
-        .meta-item h4 {
+        .eyebrow {
             font-size: 12px;
-            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .hero__lede {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .hero__actions {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .button {
+            padding: 14px 28px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .button--solid {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .button--solid:hover {
+            opacity: 0.85;
+        }
+
+        .button--ghost {
+            background: transparent;
+            color: var(--black);
+            border: 1px solid #ddd;
+        }
+
+        .button--ghost:hover {
+            background: var(--light-gray);
+        }
+
+        .hero__metrics {
+            display: flex;
+            gap: 48px;
+        }
+
+        .hero__metrics div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero__metrics dt {
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            color: var(--gray);
+            margin-bottom: 4px;
+        }
+
+        .hero__metrics dd {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .hero__plates {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .hero__plates img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 100px 24px 60px;
+            }
+            .hero__plates {
+                order: -1;
+            }
+        }
+
+        /* Project Index */
+        .index-map {
+            padding: 100px 40px;
+            background: var(--light-gray);
+        }
+
+        .index-map__label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gray);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .index-map__canvas {
+            max-width: 1000px;
+            margin: 0 auto 40px;
+        }
+
+        .index-map__canvas img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .index-map__links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .index-map__links a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 24px;
+            background: var(--white);
+            color: var(--black);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .index-map__links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .index-map__links span {
+            font-size: 12px;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .index-map { padding: 60px 24px; }
+            .index-map__links a { width: 100%; justify-content: center; }
+        }
+
+        /* Chapter Sections */
+        .chapter {
+            padding: 100px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 60px;
+        }
+
+        .chapter:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .chapter__rail {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .chapter__number {
+            font-size: 12px;
+            font-weight: 600;
             color: var(--gray);
             margin-bottom: 8px;
         }
 
-        .meta-item p {
-            font-size: 16px;
-            font-weight: 500;
+        .chapter__rail h2 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
         }
 
-        @media (max-width: 768px) {
-            .hero { padding: 100px 24px 60px; }
-            .hero-title { transform: rotate(-3deg); }
-            .hero-meta { gap: 30px; }
-        }
-
-        /* Section Headers */
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 60px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .section-title {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .section-year {
+        .chapter__place {
             font-size: 14px;
             color: var(--gray);
+            margin-bottom: 4px;
         }
 
-        /* Work Grid */
-        .work {
-            padding: 100px 40px;
-            max-width: 1400px;
-            margin: 0 auto;
+        .chapter__studio {
+            font-size: 13px;
+            color: var(--gray);
+            margin-bottom: 24px;
         }
 
-        .work-grid {
+        .chapter__rail p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        .chapter__credit {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--gray);
+            margin-top: 16px;
+        }
+
+        .chapter__stage {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
+            gap: 24px;
         }
 
-        .work-item {
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .work-item:hover {
-            transform: translateY(-8px);
-        }
-
-        .work-image {
-            aspect-ratio: 4/3;
-            background: var(--light-gray);
-            border-radius: 12px;
-            margin-bottom: 20px;
+        .stage-card {
+            margin: 0;
+            border-radius: 8px;
             overflow: hidden;
-            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
-        .work-image img, .work-image .placeholder {
+        .stage-card img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            display: block;
             transition: transform 0.5s ease;
         }
 
-        .work-item:hover .work-image img,
-        .work-item:hover .work-image .placeholder {
-            transform: scale(1.05);
+        .stage-card:hover img {
+            transform: scale(1.02);
         }
 
-        .work-info h3 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            letter-spacing: -0.02em;
-        }
-
-        .work-info p {
-            font-size: 14px;
-            color: var(--gray);
-        }
-
-        /* Project Detail Pages */
-        .project-detail {
-            display: none;
-            padding: 100px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .project-detail.active {
+        .stage-card span {
             display: block;
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 40px;
-            padding: 12px 24px;
-            background: transparent;
-            border: 1px solid #ddd;
-            border-radius: 30px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .back-btn:hover {
-            background: var(--black);
-            color: var(--white);
-            border-color: var(--black);
-        }
-
-        .project-header {
-            margin-bottom: 60px;
-        }
-
-        .project-header h1 {
-            font-size: clamp(40px, 8vw, 80px);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            margin-bottom: 20px;
-        }
-
-        .project-meta {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .project-meta-item h4 {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--gray);
-            margin-bottom: 6px;
-        }
-
-        .project-meta-item p {
-            font-size: 16px;
+            padding: 16px 20px;
+            font-size: 13px;
             font-weight: 500;
-        }
-
-        .project-description {
-            font-size: 20px;
-            line-height: 1.8;
             color: var(--gray);
-            max-width: 800px;
-            margin-bottom: 60px;
-        }
-
-        .project-gallery {
-            display: grid;
-            gap: 30px;
-        }
-
-        .project-gallery img, .gallery-placeholder {
-            width: 100%;
-            border-radius: 12px;
-            background: var(--light-gray);
-            aspect-ratio: 16/10;
-        }
-
-        /* About Section */
-        .about {
-            padding: 100px 40px;
-            background: var(--light-gray);
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .about h2 {
-            font-size: 48px;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            margin-bottom: 40px;
-        }
-
-        .about p {
-            font-size: 20px;
-            line-height: 1.8;
-            color: var(--gray);
-            margin-bottom: 24px;
-        }
-
-        .skills {
-            margin-top: 60px;
-        }
-
-        .skills h3 {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 20px;
-            color: var(--gray);
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .skill-tag {
-            padding: 10px 20px;
             background: var(--white);
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 500;
         }
 
-        /* Contact Section */
-        .contact {
-            padding: 120px 40px;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+        .stage-card--hero {
+            grid-column: 1 / -1;
         }
 
-        .contact h2 {
-            font-size: 48px;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            margin-bottom: 24px;
+        .stage-card--half {
+            grid-column: span 1;
         }
 
-        .contact p {
-            font-size: 20px;
-            color: var(--gray);
-            margin-bottom: 40px;
-        }
-
-        .contact-email {
-            font-size: 32px;
-            font-weight: 600;
-            color: var(--black);
-            text-decoration: none;
-            border-bottom: 2px solid var(--black);
-            padding-bottom: 4px;
-            transition: all 0.3s;
-        }
-
-        .contact-email:hover {
-            color: var(--gray);
-            border-color: var(--gray);
+        @media (max-width: 968px) {
+            .chapter {
+                grid-template-columns: 1fr;
+                padding: 60px 24px;
+            }
+            .chapter__rail {
+                position: relative;
+                top: 0;
+                margin-bottom: 40px;
+            }
         }
 
         /* Footer */
@@ -395,426 +406,234 @@
             margin: 0 auto;
         }
 
-        .footer-left {
+        footer p {
             font-size: 14px;
             color: var(--gray);
         }
 
-        .footer-right {
-            display: flex;
-            gap: 24px;
-        }
-
-        .footer-right a {
+        footer a {
             color: var(--black);
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
-            transition: opacity 0.3s;
         }
 
-        .footer-right a:hover {
-            opacity: 0.6;
-        }
-
-        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .work { padding: 80px 24px; }
-            .work-grid { grid-template-columns: 1fr; gap: 30px; }
-            .section-header { margin-bottom: 40px; }
-            
-            .about { padding: 80px 24px; }
-            .about h2 { font-size: 32px; }
-            .about p { font-size: 18px; }
-            
-            .contact { padding: 80px 24px; }
-            .contact h2 { font-size: 32px; }
-            .contact-email { font-size: 20px; }
-            
             footer {
                 flex-direction: column;
-                gap: 20px;
+                gap: 16px;
                 text-align: center;
                 padding: 30px 24px;
             }
-            
-            .project-detail { padding: 100px 24px 60px; }
-            .project-header h1 { font-size: 36px; }
-            .project-description { font-size: 18px; }
-        }
-
-        .placeholder {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            font-weight: 700;
-            color: #fff;
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">Jared Boardman</div>
+        <a class="brand" href="#top">
+            <span class="brand__mark">JB</span>
+            <span class="brand__name">Jared Boardman</span>
+        </a>
         <ul class="nav-links">
-            <li><a href="#work" onclick="showWork()">Work</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#gardens">Gardens</a></li>
+            <li><a href="#rosion">Rosion</a></li>
+            <li><a href="#werkplatz">WerkPlatz</a></li>
+            <li><a href="#automaton">Automaton</a></li>
+            <li><a href="#meditation">Meditation</a></li>
         </ul>
-        <button class="mobile-menu-btn" onclick="toggleMenu()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-        </button>
+        <a class="header-cta" href="assets/JaredBoardman-Portfolio-2025.pdf" target="_blank">Open PDF</a>
     </nav>
 
-    <!-- Main Container -->
-    <main id="mainContainer">
-        <!-- Hero Section -->
-        <section class="hero" id="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">Jared<br>Boardman</h1>
-                <p class="hero-subtitle">Graphic Designer & Art Director crafting visual experiences that connect brands with their audiences through bold, strategic design.</p>
-                <div class="hero-meta">
-                    <div class="meta-item">
-                        <h4>Location</h4>
-                        <p>New York, NY</p>
-                    </div>
-                    <div class="meta-item">
-                        <h4>Portfolio</h4>
-                        <p>2025</p>
-                    </div>
-                    <div class="meta-item">
-                        <h4>Focus</h4>
-                        <p>Brand Identity & Art Direction</p>
-                    </div>
-                </div>
+    <!-- Hero -->
+    <section class="hero" id="top">
+        <div class="hero__copy">
+            <p class="eyebrow">Architecture Portfolio / 2025</p>
+            <h1>Spatial Thinking Through Drawing + Material</h1>
+            <p class="hero__lede">Architecture work by Jared Boardman built around site forces, hand process, and full-scale experimentation.</p>
+            <div class="hero__actions">
+                <a class="button button--solid" href="#gardens">Enter Portfolio</a>
+                <a class="button button--ghost" href="#index-map">Project Index</a>
             </div>
-        </section>
-
-        <!-- Work Section -->
-        <section class="work" id="work">
-            <div class="section-header">
-                <span class="section-title">Selected Work</span>
-                <span class="section-year">2021—2024</span>
-            </div>
-            
-            <div class="work-grid">
-                <!-- Aurora -->
-                <a href="#" class="work-item" onclick="showProject('aurora'); return false;">
-                    <div class="work-image">
-                        <div class="placeholder" style="background: linear-gradient(135deg,#1a1a2e,#16213e);">AURORA</div>
-                    </div>
-                    <div class="work-info">
-                        <h3>Aurora</h3>
-                        <p>Brand Identity / 2024</p>
-                    </div>
-                </a>
-
-                <!-- Kings Crown -->
-                <a href="#" class="work-item" onclick="showProject('kings'); return false;">
-                    <div class="work-image">
-                        <div class="placeholder" style="background: linear-gradient(135deg,#2d3436,#636e72);">KINGS</div>
-                    </div>
-                    <div class="work-info">
-                        <h3>Kings Crown</h3>
-                        <p>Visual Identity / 2023</p>
-                    </div>
-                </a>
-
-                <!-- Dive -->
-                <a href="#" class="work-item" onclick="showProject('dive'); return false;">
-                    <div class="work-image">
-                        <div class="placeholder" style="background: linear-gradient(135deg,#0984e3,#74b9ff);">DIVE</div>
-                    </div>
-                    <div class="work-info">
-                        <h3>Dive</h3>
-                        <p>Art Direction / 2023</p>
-                    </div>
-                </a>
-
-                <!-- Frontier -->
-                <a href="#" class="work-item" onclick="showProject('frontier'); return false;">
-                    <div class="work-image">
-                        <div class="placeholder" style="background: linear-gradient(135deg,#e17055,#fab1a0);">FRONTIER</div>
-                    </div>
-                    <div class="work-info">
-                        <h3>Frontier</h3>
-                        <p>Brand Design / 2022</p>
-                    </div>
-                </a>
-
-                <!-- Gallop -->
-                <a href="#" class="work-item" onclick="showProject('gallop'); return false;">
-                    <div class="work-image">
-                        <div class="placeholder" style="background: linear-gradient(135deg,#6c5ce7,#a29bfe);">GALLOP</div>
-                    </div>
-                    <div class="work-info">
-                        <h3>Gallop</h3>
-                        <p>Visual System / 2022</p>
-                    </div>
-                </a>
-
-                <!-- Carpe Diem -->
-                <a href="#" class="work-item" onclick="showProject('carpe'); return false;">
-                    <div class="work-image">
-                        <div class="placeholder" style="background: linear-gradient(135deg,#00b894,#55efc4);">CARPE</div>
-                    </div>
-                    <div class="work-info">
-                        <h3>Carpe Diem</h3>
-                        <p>Brand Identity / 2021</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Project Detail Pages -->
-        <div id="projectPages" style="display: none;">
-            <!-- Aurora -->
-            <div class="project-detail" id="project-aurora">
-                <button class="back-btn" onclick="showWork()">← Back to Work</button>
-                <div class="project-header">
-                    <h1>Aurora</h1>
-                    <div class="project-meta">
-                        <div class="project-meta-item">
-                            <h4>Client</h4>
-                            <p>Aurora Technologies</p>
-                        </div>
-                        <div class="project-meta-item">
-                            <h4>Year</h4>
-                            <p>2024</p>
-                        </div>
-                        <div class="project-meta-item">
-                            <h4>Role</h4>
-                            <p>Brand Identity</p>
-                        </div>
-                    </div>
-                </div>
-                <p class="project-description">A complete brand identity system for Aurora Technologies, a forward-thinking tech startup focused on sustainable energy solutions. The visual language draws inspiration from the natural phenomenon of aurora borealis, capturing the ethereal beauty and dynamic energy of the northern lights.</p>
-                <div class="project-gallery">
-                    <div class="gallery-placeholder" style="background: linear-gradient(135deg,#1a1a2e,#16213e); height: 400px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 24px;">Brand System Overview</div>
-                    <div class="gallery-placeholder" style="background: #f5f5f5; height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 18px;">Logo Variations & Applications</div>
-                </div>
-            </div>
-
-            <!-- Kings Crown -->
-            <div class="project-detail" id="project-kings">
-                <button class="back-btn" onclick="showWork()">← Back to Work</button>
-                <div class="project-header">
-                    <h1>Kings Crown</h1>
-                    <div class="project-meta">
-                        <div class="project-meta-item">
-                            <h4>Client</h4>
-                            <p>Kings Crown Distillery</p>
-                        </div>
-                        <div class="project-meta-item">
-                            <h4>Year</h4>
-                            <p>2023</p>
-                        </div>
-                        <div class="project-meta-item">
-                            <h4>Role</h4>
-                            <p>Visual Identity</p>
-                        </div>
-                    </div>
-                </div>
-                <p class="project-description">A premium visual identity for Kings Crown Distillery, a craft spirits brand celebrating heritage and craftsmanship. The design balances tradition with contemporary elegance, creating a timeless brand that stands out in the competitive spirits market.</p>
-                <div class="project-gallery">
-                    <div class="gallery-placeholder" style="background: linear-gradient(135deg,#2d3436,#636e72); height: 400px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 24px;">Brand Identity System</div>
-                    <div class="gallery-placeholder" style="background: #f5f5f5; height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 18px;">Packaging Design</div>
-                </div>
-            </div>
-
-            <!-- Dive -->
-            <div class="project-detail" id="project-dive">
-                <button class="back-btn" onclick="showWork()">← Back to Work</button>
-                <div class="project-header">
-                    <h1>Dive</h1>
-                    <div class="project-meta">
-                        <div class="project-meta-item">
-                            <h4>Client</h4>
-                            <p>Dive Wellness</p>
-                        </div>
-                        <div class="project-meta-item">
-                            <h4>Year</h4>
-                            <p>2023</p>
-                        </div>
-                        <div class="project-meta-item">
-                            <h4>Role</h4>
-                            <p>Art Direction</p>
-                        </div>
-                    </div>
-                </div>
-                <p class="project-description">Art direction and visual identity for Dive Wellness, a modern wellness brand focused on mental health and mindfulness. The design creates a calming yet energizing visual experience that reflects the brand's mission of helping people dive deeper into their wellbeing.</p>
-                <div class="project-gallery">
-                    <div class="gallery-placeholder" style="background: linear-gradient(135deg,#0984e3,#74b9ff); height: 400px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 24px;">Visual Identity</div>
-                    <div class="gallery-placeholder" style="background: #f5f5f5; height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 18px;">Marketing Materials</div>
-                </div>
-            </div>
-
-            <!-- Frontier -->
-            <div class="project-detail" id="project-frontier">
-                <button class="back-btn" onclick="showWork()">← Back to Work</button>
-                <div class="project-header">
-                    <h1>Frontier</h1>
-                    <div class="project-meta">
-                        <div class="project-meta-item">
-                            <h4>Client</h4>
-                            <p>Frontier Ventures</p>
-                        </div>
-                        <div class="project-meta-item">
-                            <h4>Year</h4>
-                            <p>2022</p>
-                        </div>
-                        <div class="project-meta-item">
-                            <h4>Role</h4>
-                            <p>Brand Design</p>
-                        </div>
-                    </div>
-                </div>
-                <p class="project-description">Brand design for Frontier Ventures, an investment firm focused on emerging technologies and frontier markets. The visual identity communicates innovation, trust, and forward momentum—essential qualities for a company investing in the future.</p>
-                <div class="project-gallery">
-                    <div class="gallery-placeholder" style="background: linear-gradient(135deg,#e17055,#fab1a0); height: 400px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 24px;">Brand System</div>
-                    <div class="gallery-placeholder" style="background: #f5f5f5; height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 18px;">Digital & Print Applications</div>
-                </div>
-            </div>
-
-            <!-- Gallop -->
-            <div class="project-detail" id="project-gallop">
-                <button class="back-btn" onclick="showWork()">← Back to Work</button>
-                <div class="project-header">
-                    <h1>Gallop</h1>
-                    <div class="project-meta">
-                        <div class="project-meta-item">
-                            <h4>Client</h4>
-                            <p>Gallop Studios</p>
-                        </div>
-                        <div class="project-meta-item">
-                            <h4>Year</h4>
-                            <p>2022</p>
-                        </div>
-                        <div class="project-meta-item">
-                            <h4>Role</h4>
-                            <p>Visual System</p>
-                        </div>
-                    </div>
-                </div>
-                <p class="project-description">A comprehensive visual system for Gallop Studios, a creative production company specializing in motion design and animation. The flexible design system allows for dynamic applications while maintaining brand consistency across all touchpoints.</p>
-                <div class="project-gallery">
-                    <div class="gallery-placeholder" style="background: linear-gradient(135deg,#6c5ce7,#a29bfe); height: 400px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 24px;">Visual System</div>
-                    <div class="gallery-placeholder" style="background: #f5f5f5; height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 18px;">Motion Guidelines</div>
-                </div>
-            </div>
-
-            <!-- Carpe Diem -->
-            <div class="project-detail" id="project-carpe">
-                <button class="back-btn" onclick="showWork()">← Back to Work</button>
-                <div class="project-header">
-                    <h1>Carpe Diem</h1>
-                    <div class="project-meta">
-                        <div class="project-meta-item">
-                            <h4>Client</h4>
-                            <p>Carpe Diem Coffee</p>
-                        </div>
-                        <div class="project-meta-item">
-                            <h4>Year</h4>
-                            <p>2021</p>
-                        </div>
-                        <div class="project-meta-item">
-                            <h4>Role</h4>
-                            <p>Brand Identity</p>
-                        </div>
-                    </div>
-                </div>
-                <p class="project-description">Brand identity for Carpe Diem Coffee, a specialty coffee roaster with a mission to help people seize the day, one cup at a time. The warm, inviting design reflects the brand's commitment to quality and community.</p>
-                <div class="project-gallery">
-                    <div class="gallery-placeholder" style="background: linear-gradient(135deg,#00b894,#55efc4); height: 400px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 24px;">Brand Identity</div>
-                    <div class="gallery-placeholder" style="background: #f5f5f5; height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 18px;">Packaging & Cafe Design</div>
-                </div>
-            </div>
+            <dl class="hero__metrics">
+                <div><dt>Chapters</dt><dd>5</dd></div>
+                <div><dt>Spreads</dt><dd>21</dd></div>
+                <div><dt>Studios</dt><dd>2024-2025</dd></div>
+            </dl>
         </div>
+        <div class="hero__plates">
+            <img src="assets/cover.webp" alt="Cover">
+            <img src="assets/contents.webp" alt="Contents">
+        </div>
+    </section>
 
-        <!-- About Section -->
-        <section class="about" id="about">
-            <div class="about-content">
-                <h2>About</h2>
-                <p>I'm a graphic designer and art director based in New York City, specializing in brand identity, visual systems, and art direction. With over 5 years of experience, I've had the privilege of working with startups, agencies, and established brands to create meaningful visual experiences.</p>
-                <p>My approach combines strategic thinking with bold aesthetics, always aiming to create work that resonates with audiences and stands the test of time. I believe in the power of simplicity and the importance of every detail.</p>
-                <p>When I'm not designing, you can find me exploring the city's museums, trying new coffee shops, or working on personal photography projects.</p>
-                
-                <div class="skills">
-                    <h3>Services</h3>
-                    <div class="skills-list">
-                        <span class="skill-tag">Brand Identity</span>
-                        <span class="skill-tag">Visual Systems</span>
-                        <span class="skill-tag">Art Direction</span>
-                        <span class="skill-tag">Packaging Design</span>
-                        <span class="skill-tag">Typography</span>
-                        <span class="skill-tag">Print Design</span>
-                        <span class="skill-tag">Digital Design</span>
-                        <span class="skill-tag">Motion Graphics</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- Project Index -->
+    <section class="index-map" id="index-map">
+        <p class="index-map__label">Project Atlas</p>
+        <div class="index-map__canvas">
+            <img src="assets/contents.webp" alt="Portfolio contents">
+        </div>
+        <div class="index-map__links">
+            <a href="#gardens"><span>01</span> Gardens / Nolita, NYC</a>
+            <a href="#rosion"><span>02</span> Rosion / Charleston</a>
+            <a href="#werkplatz"><span>03</span> WerkPlatz / Gainesville</a>
+            <a href="#automaton"><span>04</span> Automaton / Amelia Island</a>
+            <a href="#meditation"><span>05</span> Meditation / Sketchbook</a>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section class="contact" id="contact">
-            <h2>Let's work together</h2>
-            <p>Have a project in mind? I'd love to hear about it. Send me an email and let's create something great.</p>
-            <a href="mailto:hello@jaredboardman.com" class="contact-email">hello@jaredboardman.com</a>
-        </section>
-    </main>
+    <!-- Chapter 1: Gardens -->
+    <section class="chapter" id="gardens">
+        <aside class="chapter__rail">
+            <p class="chapter__number">01</p>
+            <h2>Gardens</h2>
+            <p class="chapter__place">Nolita, New York City</p>
+            <p class="chapter__studio">Professor Montoya, D6, 2025</p>
+            <p>A community-first proposal developed from Manhattan borough research. The project expands green infrastructure and reframes urban housing through light, planting systems, and public space.</p>
+            <p>The Connection and The Gateway test expression, social exchange, and environmental growth as one architectural system.</p>
+            <p class="chapter__credit">In collaboration with Breck Crane</p>
+        </aside>
+        <div class="chapter__stage">
+            <figure class="stage-card stage-card--hero">
+                <img src="assets/gardens-intro.webp" alt="Gardens overview">
+                <span>Gardens Overview</span>
+            </figure>
+            <figure class="stage-card stage-card--half">
+                <img src="assets/gardens-connection.webp" alt="The Connection">
+                <span>The Connection</span>
+            </figure>
+            <figure class="stage-card stage-card--half">
+                <img src="assets/gardens-gateway.webp" alt="The Gateway">
+                <span>The Gateway</span>
+            </figure>
+            <figure class="stage-card stage-card--hero">
+                <img src="assets/gardens-process.webp" alt="Process Archive">
+                <span>Process Archive</span>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Chapter 2: Rosion -->
+    <section class="chapter" id="rosion">
+        <aside class="chapter__rail">
+            <p class="chapter__number">02</p>
+            <h2>Rosion</h2>
+            <p class="chapter__place">Charleston, South Carolina</p>
+            <p class="chapter__studio">Professor Maze, D5, 2024</p>
+            <p>Rosion is a music school shaped by Charleston's rivers and shifting edge conditions. A central path acts as the project's organizing force, guiding users from street to courtyard.</p>
+            <p>Program includes concert hall, workshop, practice spaces, reading rooms, and mixed-use collaboration zones.</p>
+        </aside>
+        <div class="chapter__stage">
+            <figure class="stage-card stage-card--hero">
+                <img src="assets/rosion-intro.webp" alt="Rosion overview">
+                <span>Rosion Overview</span>
+            </figure>
+            <figure class="stage-card stage-card--half">
+                <img src="assets/rosion-plans.webp" alt="Plan Studies">
+                <span>Plan Studies</span>
+            </figure>
+            <figure class="stage-card stage-card--half">
+                <img src="assets/rosion-facade.webp" alt="Facade Strategy">
+                <span>Facade Strategy</span>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Chapter 3: WerkPlatz -->
+    <section class="chapter" id="werkplatz">
+        <aside class="chapter__rail">
+            <p class="chapter__number">03</p>
+            <h2>WerkPlatz</h2>
+            <p class="chapter__place">Gainesville, Florida</p>
+            <p class="chapter__studio">Professor Maze, D5, 2024</p>
+            <p>WerkPlatz frames making as civic culture. The ground level curates public exhibition while the upper level supports fabrication, archive, and learning.</p>
+            <p>The design choreographs transitions between high-energy workshop zones and restorative unconditioned thresholds.</p>
+        </aside>
+        <div class="chapter__stage">
+            <figure class="stage-card stage-card--hero">
+                <img src="assets/werkplatz-intro.webp" alt="WerkPlatz overview">
+                <span>WerkPlatz Overview</span>
+            </figure>
+            <figure class="stage-card stage-card--hero">
+                <img src="assets/werkplatz-drawings.webp" alt="Drawing Set">
+                <span>Drawing Set</span>
+            </figure>
+            <figure class="stage-card stage-card--hero">
+                <img src="assets/werkplatz-process.webp" alt="Process + Section Logic">
+                <span>Process + Section Logic</span>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Chapter 4: Automaton -->
+    <section class="chapter" id="automaton">
+        <aside class="chapter__rail">
+            <p class="chapter__number">04</p>
+            <h2>Automaton</h2>
+            <p class="chapter__place">Amelia Island, Florida</p>
+            <p class="chapter__studio">Professor Cronin, D7, 2025</p>
+            <p>Physical research into textile architecture through iterative prototyping and full-scale deployment. The structure behaves like a responsive body in wind-heavy coastal conditions.</p>
+            <p>PVC armature and light membrane system were tested through mapping, build sequencing, and field documentation.</p>
+            <p class="chapter__credit">In collaboration with Ahmik Paul, Chris Muratti, and Jackson Rowden</p>
+        </aside>
+        <div class="chapter__stage">
+            <figure class="stage-card stage-card--hero">
+                <img src="assets/automaton-intro.webp" alt="Automaton overview">
+                <span>Automaton Overview</span>
+            </figure>
+            <figure class="stage-card stage-card--hero">
+                <img src="assets/automaton-map.webp" alt="Scale + Mapping">
+                <span>Scale + Mapping</span>
+            </figure>
+            <figure class="stage-card stage-card--half">
+                <img src="assets/automaton-build.webp" alt="Build Sequence">
+                <span>Build Sequence</span>
+            </figure>
+            <figure class="stage-card stage-card--half">
+                <img src="assets/automaton-field-1.webp" alt="Field Deployment I">
+                <span>Field Deployment I</span>
+            </figure>
+            <figure class="stage-card stage-card--hero">
+                <img src="assets/automaton-field-2.webp" alt="Field Deployment II">
+                <span>Field Deployment II</span>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Chapter 5: Meditation -->
+    <section class="chapter" id="meditation">
+        <aside class="chapter__rail">
+            <p class="chapter__number">05</p>
+            <h2>Meditation</h2>
+            <p class="chapter__place">My Sketchbook</p>
+            <p class="chapter__studio">Jared Boardman, Ongoing</p>
+            <p>Drawing and watercolor are both thinking tools and discipline. These studies sharpen observation, speed ideation, and support architectural decision-making beyond studio deliverables.</p>
+            <p>The collection combines field sketches, personal studies, and atmospheric color work.</p>
+        </aside>
+        <div class="chapter__stage">
+            <figure class="stage-card stage-card--hero">
+                <img src="assets/meditation-intro.webp" alt="Meditation overview">
+                <span>Meditation Overview</span>
+            </figure>
+            <figure class="stage-card stage-card--hero">
+                <img src="assets/meditation-sketch.webp" alt="Sketch Studies">
+                <span>Sketch Studies</span>
+            </figure>
+            <figure class="stage-card stage-card--hero">
+                <img src="assets/meditation-watercolor-1.webp" alt="Watercolor Studies I">
+                <span>Watercolor Studies I</span>
+            </figure>
+            <figure class="stage-card stage-card--hero">
+                <img src="assets/meditation-watercolor-2.webp" alt="Watercolor Studies II">
+                <span>Watercolor Studies II</span>
+            </figure>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-left">© 2025 Jared Boardman. All rights reserved.</div>
-        <div class="footer-right">
-            <a href="#">Instagram</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Behance</a>
-        </div>
+        <p>Jared Boardman / Architecture Portfolio 2025</p>
+        <a href="assets/JaredBoardman-Portfolio-2025.pdf" target="_blank">View Original PDF</a>
     </footer>
-
-    <script>
-        function showProject(projectId) {
-            // Hide main content
-            document.getElementById('hero').style.display = 'none';
-            document.getElementById('work').style.display = 'none';
-            document.getElementById('about').style.display = 'none';
-            document.getElementById('contact').style.display = 'none';
-            
-            // Show project pages container
-            document.getElementById('projectPages').style.display = 'block';
-            
-            // Show specific project
-            document.querySelectorAll('.project-detail').forEach(p => p.classList.remove('active'));
-            document.getElementById('project-' + projectId).classList.add('active');
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
-
-        function showWork() {
-            // Show main content
-            document.getElementById('hero').style.display = 'flex';
-            document.getElementById('work').style.display = 'block';
-            document.getElementById('about').style.display = 'block';
-            document.getElementById('contact').style.display = 'block';
-            
-            // Hide project pages
-            document.getElementById('projectPages').style.display = 'none';
-            document.querySelectorAll('.project-detail').forEach(p => p.classList.remove('active'));
-            
-            // Scroll to work section
-            document.getElementById('work').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function toggleMenu() {
-            alert('Menu - add mobile navigation here');
-        }
-    </script>
 </body>
 </html>
