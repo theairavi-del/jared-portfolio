@@ -14,6 +14,8 @@
             --white: #ffffff;
             --gray: #666666;
             --light-gray: #f5f5f5;
+            --red: #e63946;
+            --red-dark: #c1121f;
         }
 
         html { scroll-behavior: smooth; }
@@ -50,7 +52,7 @@
         .brand__mark {
             width: 40px;
             height: 40px;
-            background: var(--black);
+            background: var(--red);
             color: var(--white);
             display: flex;
             align-items: center;
@@ -75,23 +77,42 @@
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
-            transition: opacity 0.3s;
+            transition: color 0.3s;
+            position: relative;
         }
 
-        .nav-links a:hover { opacity: 0.6; }
+        .nav-links a:hover { color: var(--red); }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--red);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after { width: 100%; }
 
         .header-cta {
-            padding: 10px 20px;
-            background: var(--black);
+            padding: 12px 24px;
+            background: var(--red);
             color: var(--white);
             text-decoration: none;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600;
             border-radius: 4px;
-            transition: opacity 0.3s;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .header-cta:hover { opacity: 0.8; }
+        .header-cta:hover { 
+            background: var(--red-dark);
+            transform: translateY(-2px);
+        }
 
         @media (max-width: 768px) {
             nav { padding: 16px 24px; }
@@ -99,137 +120,121 @@
             .brand__name { display: none; }
         }
 
-        /* Hero Section */
+        /* Hero Section - BIGGER */
         .hero {
             min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            padding: 120px 40px 80px;
-            max-width: 1400px;
-            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            padding: 120px 40px 80px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+        }
+
+        .hero__cover {
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 60px;
+        }
+
+        .hero__cover img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
         }
 
         .hero__copy {
-            max-width: 600px;
+            max-width: 800px;
         }
 
         .eyebrow {
             font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--gray);
+            letter-spacing: 0.2em;
+            color: var(--red);
             margin-bottom: 24px;
+            font-weight: 600;
         }
 
         .hero h1 {
-            font-size: clamp(36px, 5vw, 56px);
+            font-size: clamp(48px, 8vw, 84px);
             font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
             margin-bottom: 24px;
         }
 
         .hero__lede {
-            font-size: 18px;
+            font-size: 20px;
             color: var(--gray);
-            margin-bottom: 32px;
+            margin-bottom: 40px;
             line-height: 1.7;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero__actions {
             display: flex;
             gap: 16px;
-            margin-bottom: 48px;
+            justify-content: center;
         }
 
         .button {
-            padding: 14px 28px;
+            padding: 16px 32px;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
             border-radius: 4px;
             transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .button--solid {
-            background: var(--black);
+            background: var(--red);
             color: var(--white);
         }
 
         .button--solid:hover {
-            opacity: 0.85;
+            background: var(--red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(230, 57, 70, 0.3);
         }
 
         .button--ghost {
             background: transparent;
             color: var(--black);
-            border: 1px solid #ddd;
+            border: 2px solid var(--black);
         }
 
         .button--ghost:hover {
-            background: var(--light-gray);
+            background: var(--black);
+            color: var(--white);
         }
 
-        .hero__metrics {
-            display: flex;
-            gap: 48px;
-        }
-
-        .hero__metrics div {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .hero__metrics dt {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--gray);
-            margin-bottom: 4px;
-        }
-
-        .hero__metrics dd {
-            font-size: 24px;
-            font-weight: 600;
-        }
-
-        .hero__plates {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .hero__plates img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        @media (max-width: 968px) {
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 100px 24px 60px;
-            }
-            .hero__plates {
-                order: -1;
-            }
+        @media (max-width: 768px) {
+            .hero { padding: 100px 24px 60px; }
+            .hero__cover { margin-bottom: 40px; }
+            .hero__actions { flex-direction: column; align-items: center; }
+            .button { width: 100%; max-width: 300px; }
         }
 
         /* Project Index */
         .index-map {
             padding: 100px 40px;
-            background: var(--light-gray);
+            background: var(--white);
         }
 
         .index-map__label {
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: var(--gray);
+            color: var(--red);
             margin-bottom: 32px;
             text-align: center;
+            font-weight: 600;
         }
 
         .index-map__canvas {
@@ -265,17 +270,19 @@
             font-weight: 500;
             transition: all 0.3s;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 2px solid transparent;
         }
 
         .index-map__links a:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border-color: var(--red);
         }
 
         .index-map__links span {
             font-size: 12px;
-            color: var(--gray);
-            font-weight: 400;
+            color: var(--red);
+            font-weight: 600;
         }
 
         @media (max-width: 768px) {
@@ -306,12 +313,12 @@
         .chapter__number {
             font-size: 12px;
             font-weight: 600;
-            color: var(--gray);
+            color: var(--red);
             margin-bottom: 8px;
         }
 
         .chapter__rail h2 {
-            font-size: 36px;
+            font-size: 42px;
             font-weight: 700;
             letter-spacing: -0.02em;
             margin-bottom: 8px;
@@ -341,6 +348,8 @@
             font-style: italic;
             color: var(--gray);
             margin-top: 16px;
+            padding-top: 16px;
+            border-top: 2px solid var(--red);
         }
 
         .chapter__stage {
@@ -353,17 +362,18 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: box-shadow 0.3s;
+        }
+
+        .stage-card:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
         }
 
         .stage-card img {
             width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .stage-card:hover img {
-            transform: scale(1.02);
         }
 
         .stage-card span {
@@ -373,6 +383,7 @@
             font-weight: 500;
             color: var(--gray);
             background: var(--white);
+            border-top: 3px solid var(--red);
         }
 
         .stage-card--hero {
@@ -395,10 +406,68 @@
             }
         }
 
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox__close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--red);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .lightbox__close:hover {
+            background: var(--red-dark);
+            transform: scale(1.1);
+        }
+
+        .lightbox__caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            font-size: 14px;
+            background: rgba(0,0,0,0.7);
+            padding: 12px 24px;
+            border-radius: 4px;
+        }
+
         /* Footer */
         footer {
             padding: 40px;
-            border-top: 1px solid #e0e0e0;
+            border-top: 3px solid var(--red);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -412,10 +481,14 @@
         }
 
         footer a {
-            color: var(--black);
+            color: var(--red);
             text-decoration: none;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -442,11 +515,14 @@
             <li><a href="#automaton">Automaton</a></li>
             <li><a href="#meditation">Meditation</a></li>
         </ul>
-        <a class="header-cta" href="assets/JaredBoardman-Portfolio-2025.pdf" target="_blank">Open PDF</a>
+        <a class="header-cta" href="mailto:jared@example.com">Contact</a>
     </nav>
 
-    <!-- Hero -->
+    <!-- Hero - Bigger, no metrics, no contents -->
     <section class="hero" id="top">
+        <div class="hero__cover">
+            <img src="assets/cover.webp" alt="Jared Boardman Architecture Portfolio 2025">
+        </div>
         <div class="hero__copy">
             <p class="eyebrow">Architecture Portfolio / 2025</p>
             <h1>Spatial Thinking Through Drawing + Material</h1>
@@ -455,15 +531,6 @@
                 <a class="button button--solid" href="#gardens">Enter Portfolio</a>
                 <a class="button button--ghost" href="#index-map">Project Index</a>
             </div>
-            <dl class="hero__metrics">
-                <div><dt>Chapters</dt><dd>5</dd></div>
-                <div><dt>Spreads</dt><dd>21</dd></div>
-                <div><dt>Studios</dt><dd>2024-2025</dd></div>
-            </dl>
-        </div>
-        <div class="hero__plates">
-            <img src="assets/cover.webp" alt="Cover">
-            <img src="assets/contents.webp" alt="Contents">
         </div>
     </section>
 
@@ -494,19 +561,19 @@
             <p class="chapter__credit">In collaboration with Breck Crane</p>
         </aside>
         <div class="chapter__stage">
-            <figure class="stage-card stage-card--hero">
+            <figure class="stage-card stage-card--hero" onclick="openLightbox('assets/gardens-intro.webp', 'Gardens Overview')">
                 <img src="assets/gardens-intro.webp" alt="Gardens overview">
                 <span>Gardens Overview</span>
             </figure>
-            <figure class="stage-card stage-card--half">
+            <figure class="stage-card stage-card--half" onclick="openLightbox('assets/gardens-connection.webp', 'The Connection')">
                 <img src="assets/gardens-connection.webp" alt="The Connection">
                 <span>The Connection</span>
             </figure>
-            <figure class="stage-card stage-card--half">
+            <figure class="stage-card stage-card--half" onclick="openLightbox('assets/gardens-gateway.webp', 'The Gateway')">
                 <img src="assets/gardens-gateway.webp" alt="The Gateway">
                 <span>The Gateway</span>
             </figure>
-            <figure class="stage-card stage-card--hero">
+            <figure class="stage-card stage-card--hero" onclick="openLightbox('assets/gardens-process.webp', 'Process Archive')">
                 <img src="assets/gardens-process.webp" alt="Process Archive">
                 <span>Process Archive</span>
             </figure>
@@ -524,15 +591,15 @@
             <p>Program includes concert hall, workshop, practice spaces, reading rooms, and mixed-use collaboration zones.</p>
         </aside>
         <div class="chapter__stage">
-            <figure class="stage-card stage-card--hero">
+            <figure class="stage-card stage-card--hero" onclick="openLightbox('assets/rosion-intro.webp', 'Rosion Overview')">
                 <img src="assets/rosion-intro.webp" alt="Rosion overview">
                 <span>Rosion Overview</span>
             </figure>
-            <figure class="stage-card stage-card--half">
+            <figure class="stage-card stage-card--half" onclick="openLightbox('assets/rosion-plans.webp', 'Plan Studies')">
                 <img src="assets/rosion-plans.webp" alt="Plan Studies">
                 <span>Plan Studies</span>
             </figure>
-            <figure class="stage-card stage-card--half">
+            <figure class="stage-card stage-card--half" onclick="openLightbox('assets/rosion-facade.webp', 'Facade Strategy')">
                 <img src="assets/rosion-facade.webp" alt="Facade Strategy">
                 <span>Facade Strategy</span>
             </figure>
@@ -550,15 +617,15 @@
             <p>The design choreographs transitions between high-energy workshop zones and restorative unconditioned thresholds.</p>
         </aside>
         <div class="chapter__stage">
-            <figure class="stage-card stage-card--hero">
+            <figure class="stage-card stage-card--hero" onclick="openLightbox('assets/werkplatz-intro.webp', 'WerkPlatz Overview')">
                 <img src="assets/werkplatz-intro.webp" alt="WerkPlatz overview">
                 <span>WerkPlatz Overview</span>
             </figure>
-            <figure class="stage-card stage-card--hero">
+            <figure class="stage-card stage-card--hero" onclick="openLightbox('assets/werkplatz-drawings.webp', 'Drawing Set')">
                 <img src="assets/werkplatz-drawings.webp" alt="Drawing Set">
                 <span>Drawing Set</span>
             </figure>
-            <figure class="stage-card stage-card--hero">
+            <figure class="stage-card stage-card--hero" onclick="openLightbox('assets/werkplatz-process.webp', 'Process + Section Logic')">
                 <img src="assets/werkplatz-process.webp" alt="Process + Section Logic">
                 <span>Process + Section Logic</span>
             </figure>
@@ -577,23 +644,23 @@
             <p class="chapter__credit">In collaboration with Ahmik Paul, Chris Muratti, and Jackson Rowden</p>
         </aside>
         <div class="chapter__stage">
-            <figure class="stage-card stage-card--hero">
+            <figure class="stage-card stage-card--hero" onclick="openLightbox('assets/automaton-intro.webp', 'Automaton Overview')">
                 <img src="assets/automaton-intro.webp" alt="Automaton overview">
                 <span>Automaton Overview</span>
             </figure>
-            <figure class="stage-card stage-card--hero">
+            <figure class="stage-card stage-card--hero" onclick="openLightbox('assets/automaton-map.webp', 'Scale + Mapping')">
                 <img src="assets/automaton-map.webp" alt="Scale + Mapping">
                 <span>Scale + Mapping</span>
             </figure>
-            <figure class="stage-card stage-card--half">
+            <figure class="stage-card stage-card--half" onclick="openLightbox('assets/automaton-build.webp', 'Build Sequence')">
                 <img src="assets/automaton-build.webp" alt="Build Sequence">
                 <span>Build Sequence</span>
             </figure>
-            <figure class="stage-card stage-card--half">
+            <figure class="stage-card stage-card--half" onclick="openLightbox('assets/automaton-field-1.webp', 'Field Deployment I')">
                 <img src="assets/automaton-field-1.webp" alt="Field Deployment I">
                 <span>Field Deployment I</span>
             </figure>
-            <figure class="stage-card stage-card--hero">
+            <figure class="stage-card stage-card--hero" onclick="openLightbox('assets/automaton-field-2.webp', 'Field Deployment II')">
                 <img src="assets/automaton-field-2.webp" alt="Field Deployment II">
                 <span>Field Deployment II</span>
             </figure>
@@ -611,19 +678,19 @@
             <p>The collection combines field sketches, personal studies, and atmospheric color work.</p>
         </aside>
         <div class="chapter__stage">
-            <figure class="stage-card stage-card--hero">
+            <figure class="stage-card stage-card--hero" onclick="openLightbox('assets/meditation-intro.webp', 'Meditation Overview')">
                 <img src="assets/meditation-intro.webp" alt="Meditation overview">
                 <span>Meditation Overview</span>
             </figure>
-            <figure class="stage-card stage-card--hero">
+            <figure class="stage-card stage-card--hero" onclick="openLightbox('assets/meditation-sketch.webp', 'Sketch Studies')">
                 <img src="assets/meditation-sketch.webp" alt="Sketch Studies">
                 <span>Sketch Studies</span>
             </figure>
-            <figure class="stage-card stage-card--hero">
+            <figure class="stage-card stage-card--hero" onclick="openLightbox('assets/meditation-watercolor-1.webp', 'Watercolor Studies I')">
                 <img src="assets/meditation-watercolor-1.webp" alt="Watercolor Studies I">
                 <span>Watercolor Studies I</span>
             </figure>
-            <figure class="stage-card stage-card--hero">
+            <figure class="stage-card stage-card--hero" onclick="openLightbox('assets/meditation-watercolor-2.webp', 'Watercolor Studies II')">
                 <img src="assets/meditation-watercolor-2.webp" alt="Watercolor Studies II">
                 <span>Watercolor Studies II</span>
             </figure>
@@ -633,7 +700,45 @@
     <!-- Footer -->
     <footer>
         <p>Jared Boardman / Architecture Portfolio 2025</p>
-        <a href="assets/JaredBoardman-Portfolio-2025.pdf" target="_blank">View Original PDF</a>
+        <a href="mailto:jared@example.com">Get In Touch</a>
     </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <button class="lightbox__close" onclick="closeLightbox(event)">&times;</button>
+        <img src="" alt="" id="lightbox-img">
+        <p class="lightbox__caption" id="lightbox-caption"></p>
+    </div>
+
+    <script>
+        function openLightbox(src, caption) {
+            event.stopPropagation();
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            const cap = document.getElementById('lightbox-caption');
+            img.src = src;
+            cap.textContent = caption;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event) {
+            if (event.target.classList.contains('lightbox') || event.target.classList.contains('lightbox__close')) {
+                const lightbox = document.getElementById('lightbox');
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const lightbox = document.getElementById('lightbox');
+                if (lightbox.classList.contains('active')) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+    </script>
 </body>
 </html>
