@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jared Boardman | Portfolio 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --gray: #666666;
+            --light-gray: #f5f5f5;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--black);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px 24px;
+            }
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 120px 40px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-title {
+            font-size: clamp(48px, 12vw, 140px);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 0.9;
+            margin-bottom: 40px;
+            transform: rotate(-5deg);
+            transform-origin: left center;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 3vw, 24px);
+            font-weight: 400;
+            color: var(--gray);
+            max-width: 600px;
+            margin-bottom: 60px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item h4 {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray);
+            margin-bottom: 8px;
+        }
+
+        .meta-item p {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 24px 60px;
+            }
+            .hero-title {
+                transform: rotate(-3deg);
+            }
+            .hero-meta {
+                gap: 30px;
+            }
+        }
+
+        /* Work Section */
+        .work {
+            padding: 120px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 80px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .section-year {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px 40px;
+        }
+
+        .work-item {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .work-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .work-image {
+            aspect-ratio: 4/3;
+            background: var(--light-gray);
+            border-radius: 12px;
+            margin-bottom: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .work-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .work-item:hover .work-image img {
+            transform: scale(1.05);
+        }
+
+        .work-info h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .work-info p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        @media (max-width: 768px) {
+            .work {
+                padding: 80px 24px;
+            }
+            .work-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .section-header {
+                margin-bottom: 40px;
+            }
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 40px;
+            background: var(--light-gray);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 40px;
+        }
+
+        .about p {
+            font-size: 20px;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .about {
+                padding: 80px 24px;
+            }
+            .about h2 {
+                font-size: 32px;
+            }
+            .about p {
+                font-size: 18px;
+            }
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        .contact p {
+            font-size: 20px;
+            color: var(--gray);
+            margin-bottom: 40px;
+        }
+
+        .contact-email {
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--black);
+            text-decoration: none;
+            border-bottom: 2px solid var(--black);
+            padding-bottom: 4px;
+            transition: all 0.3s;
+        }
+
+        .contact-email:hover {
+            color: var(--gray);
+            border-color: var(--gray);
+        }
+
+        @media (max-width: 768px) {
+            .contact {
+                padding: 80px 24px;
+            }
+            .contact h2 {
+                font-size: 32px;
+            }
+            .contact-email {
+                font-size: 20px;
+            }
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-left {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-right a {
+            color: var(--black);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .footer-right a:hover {
+            opacity: 0.6;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+                padding: 30px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Jared Boardman</div>
+        <ul class="nav-links">
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Jared<br>Boardman</h1>
+            <p class="hero-subtitle">Graphic Designer & Art Director crafting visual experiences that connect brands with their audiences.</p>
+            <div class="hero-meta">
+                <div class="meta-item">
+                    <h4>Location</h4>
+                    <p>New York, NY</p>
+                </div>
+                <div class="meta-item">
+                    <h4>Portfolio</h4>
+                    <p>2025</p>
+                </div>
+                <div class="meta-item">
+                    <h4>Specialty</h4>
+                    <p>Brand Identity</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="work" id="work">
+        <div class="section-header">
+            <span class="section-title">Selected Work</span>
+            <span class="section-year">2021—2024</span>
+        </div>
+        
+        <div class="work-grid">
+            <div class="work-item">
+                <div class="work-image">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e,#16213e);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:600;">AURORA</div>
+                </div>
+                <div class="work-info">
+                    <h3>Aurora</h3>
+                    <p>Brand Identity / 2024</p>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <div class="work-image">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg,#2d3436,#636e72);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:600;">KINGS</div>
+                </div>
+                <div class="work-info">
+                    <h3>Kings Crown</h3>
+                    <p>Visual Identity / 2023</p>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <div class="work-image">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg,#0984e3,#74b9ff);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:600;">DIVE</div>
+                </div>
+                <div class="work-info">
+                    <h3>Dive</h3>
+                    <p>Art Direction / 2023</p>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <div class="work-image">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg,#e17055,#fab1a0);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:600;">FRONTIER</div>
+                </div>
+                <div class="work-info">
+                    <h3>Frontier</h3>
+                    <p>Brand Design / 2022</p>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <div class="work-image">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg,#6c5ce7,#a29bfe);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:600;">GALLOP</div>
+                </div>
+                <div class="work-info">
+                    <h3>Gallop</h3>
+                    <p>Visual System / 2022</p>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <div class="work-image">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg,#00b894,#55efc4);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:600;">CARPE</div>
+                </div>
+                <div class="work-info">
+                    <h3>Carpe Diem</h3>
+                    <p>Brand Identity / 2021</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>About</h2>
+            <p>I'm a graphic designer and art director based in New York City, specializing in brand identity, visual systems, and art direction. With over 5 years of experience, I've had the privilege of working with startups, agencies, and established brands to create meaningful visual experiences.</p>
+            <p>My approach combines strategic thinking with bold aesthetics, always aiming to create work that resonates with audiences and stands the test of time. I believe in the power of simplicity and the importance of every detail.</p>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Let's work together</h2>
+        <p>Have a project in mind? I'd love to hear about it.</p>
+        <a href="mailto:hello@jaredboardman.com" class="contact-email">hello@jaredboardman.com</a>
+    </section>
+
+    <footer>
+        <div class="footer-left">© 2025 Jared Boardman. All rights reserved.</div>
+        <div class="footer-right">
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Behance</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            // Mobile menu toggle functionality
+            alert('Menu clicked - add mobile menu here');
+        }
+    </script>
+</body>
+</html>
