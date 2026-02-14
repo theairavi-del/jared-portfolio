@@ -14,7 +14,8 @@
             --white: #fff;
             --gray: #666;
             --light-gray: #f8f8f8;
-            --red: #c41e3a;
+            --red: #e63946;
+            --red-dark: #c1121f;
         }
 
         html { scroll-behavior: smooth; }
@@ -52,9 +53,9 @@
             align-items: center;
             gap: 10px;
             text-decoration: none;
-            color: var(--black);
+            color: var(--red);
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .nav-links {
@@ -68,9 +69,23 @@
             text-decoration: none;
             font-size: 13px;
             transition: color 0.2s;
+            position: relative;
         }
 
-        .nav-links a:hover { color: var(--black); }
+        .nav-links a:hover { color: var(--red); }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--red);
+            transition: width 0.2s;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
 
         .header-cta {
             padding: 8px 16px;
@@ -79,10 +94,12 @@
             text-decoration: none;
             font-size: 12px;
             font-weight: 500;
-            transition: opacity 0.2s;
+            transition: all 0.2s;
         }
 
-        .header-cta:hover { opacity: 0.7; }
+        .header-cta:hover {
+            background: var(--red);
+        }
 
         @media (max-width: 768px) {
             nav { padding: 20px 24px; }
@@ -142,7 +159,9 @@
             color: var(--white);
         }
 
-        .button--solid:hover { opacity: 0.8; }
+        .button--solid:hover {
+            background: var(--red);
+        }
 
         .button--ghost {
             background: transparent;
@@ -150,7 +169,10 @@
             border: 1px solid #ddd;
         }
 
-        .button--ghost:hover { border-color: var(--black); }
+        .button--ghost:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
 
         .hero__cover img {
             width: 100%;
@@ -170,7 +192,7 @@
         /* Project Index */
         .index-map {
             padding: 80px 48px;
-            background: var(--light-gray);
+            background: var(--white);
         }
 
         .index-map__inner {
@@ -216,7 +238,8 @@
         }
 
         .index-map__links a:hover {
-            border-color: var(--black);
+            border-color: var(--red);
+            color: var(--red);
         }
 
         @media (max-width: 768px) {
@@ -310,6 +333,13 @@
             padding: 12px 0;
             font-size: 12px;
             color: var(--gray);
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .stage-card:hover span {
+            color: var(--red);
+            border-bottom-color: var(--red);
         }
 
         .stage-card--hero {
@@ -397,7 +427,17 @@
             text-decoration: none;
         }
 
-        footer a:hover { color: var(--black); }
+        footer a {
+            color: var(--gray);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--red);
+            border-bottom-color: var(--red);
+        }
 
         @media (max-width: 768px) {
             .footer__inner {
