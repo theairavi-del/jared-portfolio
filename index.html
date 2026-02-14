@@ -5,65 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jared Boardman | Architecture Portfolio 2025</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --black: #0a0a0a;
-            --white: #ffffff;
-            --gray: #666666;
-            --light-gray: #f5f5f5;
-            --red: #e63946;
-            --red-dark: #c1121f;
+            --black: #111;
+            --white: #fff;
+            --gray: #666;
+            --light-gray: #f8f8f8;
+            --red: #c41e3a;
         }
 
         html { scroll-behavior: smooth; }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             background: var(--white);
             color: var(--black);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            font-size: 15px;
         }
 
         /* Navigation */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
-            padding: 20px 40px;
+            padding: 24px 48px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 100;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(20px);
+            background: var(--white);
+            border-bottom: 1px solid #eee;
         }
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             text-decoration: none;
             color: var(--black);
-        }
-
-        .brand__mark {
-            width: 40px;
-            height: 40px;
-            background: var(--red);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
             font-size: 14px;
-        }
-
-        .brand__name {
-            font-size: 16px;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .nav-links {
@@ -73,51 +57,29 @@
         }
 
         .nav-links a {
-            color: var(--black);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-links a:hover { color: var(--red); }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--red);
-            transition: width 0.3s;
-        }
-        
-        .nav-links a:hover::after { width: 100%; }
-
-        .header-cta {
-            padding: 12px 24px;
-            background: var(--red);
-            color: var(--white);
+            color: var(--gray);
             text-decoration: none;
             font-size: 13px;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            transition: color 0.2s;
         }
 
-        .header-cta:hover { 
-            background: var(--red-dark);
-            transform: translateY(-2px);
+        .nav-links a:hover { color: var(--black); }
+
+        .header-cta {
+            padding: 8px 16px;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            transition: opacity 0.2s;
         }
+
+        .header-cta:hover { opacity: 0.7; }
 
         @media (max-width: 768px) {
-            nav { padding: 16px 24px; }
+            nav { padding: 20px 24px; }
             .nav-links { display: none; }
-            .brand__name { display: none; }
         }
 
         /* Hero Section */
@@ -126,182 +88,140 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
-            padding: 140px 60px 100px;
-            max-width: 1400px;
+            padding: 140px 48px 100px;
+            max-width: 1200px;
             margin: 0 auto;
             align-items: center;
         }
 
-        .hero__copy {
-            max-width: 600px;
-        }
-
-        .hero__cover {
-            width: 100%;
-        }
-
-        .hero__cover img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        }
-
-        .eyebrow {
-            font-size: 12px;
+        .hero__eyebrow {
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.15em;
             color: var(--red);
-            margin-bottom: 24px;
-            font-weight: 600;
+            margin-bottom: 16px;
         }
 
         .hero h1 {
-            font-size: clamp(48px, 8vw, 84px);
-            font-weight: 700;
-            line-height: 1.05;
-            letter-spacing: -0.03em;
-            margin-bottom: 24px;
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            color: var(--black);
         }
 
         .hero__lede {
-            font-size: 20px;
+            font-size: 15px;
             color: var(--gray);
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             line-height: 1.7;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .hero__actions {
             display: flex;
-            gap: 16px;
-            justify-content: center;
+            gap: 12px;
         }
 
         .button {
-            padding: 16px 32px;
-            font-size: 14px;
-            font-weight: 600;
+            padding: 12px 24px;
+            font-size: 12px;
+            font-weight: 500;
             text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            transition: all 0.2s;
         }
 
         .button--solid {
-            background: var(--red);
+            background: var(--black);
             color: var(--white);
         }
 
-        .button--solid:hover {
-            background: var(--red-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(230, 57, 70, 0.3);
-        }
+        .button--solid:hover { opacity: 0.8; }
 
         .button--ghost {
             background: transparent;
             color: var(--black);
-            border: 2px solid var(--black);
+            border: 1px solid #ddd;
         }
 
-        .button--ghost:hover {
-            background: var(--black);
-            color: var(--white);
+        .button--ghost:hover { border-color: var(--black); }
+
+        .hero__cover img {
+            width: 100%;
+            border-radius: 4px;
         }
 
         @media (max-width: 968px) {
             .hero {
                 grid-template-columns: 1fr;
                 padding: 120px 24px 60px;
-                text-align: center;
             }
-            .hero__cover { order: -1; }
-            .hero__actions { 
-                flex-direction: column; 
-                align-items: center; 
-            }
-            .button { width: 100%; max-width: 300px; }
+            .hero__cover { order: -1; margin-bottom: 40px; }
+            .hero__actions { flex-direction: column; }
+            .button { text-align: center; }
         }
 
         /* Project Index */
         .index-map {
-            padding: 100px 40px;
-            background: var(--white);
+            padding: 80px 48px;
+            background: var(--light-gray);
         }
 
         .index-map__label {
-            font-size: 12px;
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--red);
-            margin-bottom: 32px;
-            text-align: center;
-            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--gray);
+            margin-bottom: 24px;
+            text-align: left;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .index-map__canvas {
-            max-width: 1000px;
-            margin: 0 auto 40px;
+            max-width: 1100px;
+            margin: 0 auto 32px;
         }
 
         .index-map__canvas img {
             width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 4px;
         }
 
         .index-map__links {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 16px;
-            max-width: 900px;
+            gap: 12px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .index-map__links a {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 24px;
+            padding: 12px 20px;
             background: var(--white);
             color: var(--black);
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border: 2px solid transparent;
+            font-size: 13px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.2s;
         }
 
         .index-map__links a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-            border-color: var(--red);
-        }
-
-        .index-map__links span {
-            font-size: 12px;
-            color: var(--red);
-            font-weight: 600;
+            border-color: var(--black);
         }
 
         @media (max-width: 768px) {
             .index-map { padding: 60px 24px; }
-            .index-map__links a { width: 100%; justify-content: center; }
+            .index-map__links a { width: 100%; }
         }
 
         /* Chapter Sections */
         .chapter {
-            padding: 100px 40px;
-            max-width: 1400px;
+            padding: 100px 48px;
+            max-width: 1100px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 320px 1fr;
+            grid-template-columns: 260px 1fr;
             gap: 60px;
         }
 
@@ -316,79 +236,71 @@
         }
 
         .chapter__number {
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 11px;
             color: var(--red);
             margin-bottom: 8px;
         }
 
         .chapter__rail h2 {
-            font-size: 42px;
-            font-weight: 700;
-            letter-spacing: -0.02em;
+            font-size: 24px;
+            font-weight: 500;
             margin-bottom: 8px;
         }
 
         .chapter__place {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--gray);
             margin-bottom: 4px;
         }
 
         .chapter__studio {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--gray);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .chapter__rail p {
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.7;
             color: var(--gray);
             margin-bottom: 16px;
         }
 
         .chapter__credit {
-            font-size: 13px;
-            font-style: italic;
+            font-size: 12px;
             color: var(--gray);
             margin-top: 16px;
             padding-top: 16px;
-            border-top: 2px solid var(--red);
+            border-top: 1px solid #ddd;
         }
 
         .chapter__stage {
             display: grid;
-            gap: 24px;
+            gap: 16px;
         }
 
         .stage-card {
             margin: 0;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             cursor: pointer;
-            transition: box-shadow 0.3s;
+            transition: opacity 0.2s;
         }
 
         .stage-card:hover {
-            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            opacity: 0.9;
         }
 
         .stage-card img {
             width: 100%;
             height: auto;
             display: block;
+            border-radius: 4px;
         }
 
         .stage-card span {
             display: block;
-            padding: 16px 20px;
-            font-size: 13px;
-            font-weight: 500;
+            padding: 12px 0;
+            font-size: 12px;
             color: var(--gray);
-            background: var(--white);
-            border-top: 3px solid var(--red);
         }
 
         .stage-card--hero {
@@ -407,7 +319,7 @@
             .chapter__rail {
                 position: relative;
                 top: 0;
-                margin-bottom: 40px;
+                margin-bottom: 32px;
             }
         }
 
@@ -423,83 +335,61 @@
             padding: 40px;
         }
 
-        .lightbox.active {
-            display: flex;
-        }
+        .lightbox.active { display: flex; }
 
         .lightbox img {
             max-width: 90%;
             max-height: 90vh;
             object-fit: contain;
-            border-radius: 8px;
         }
 
         .lightbox__close {
             position: absolute;
             top: 20px;
             right: 20px;
-            width: 50px;
-            height: 50px;
-            background: var(--red);
-            color: var(--white);
+            width: 44px;
+            height: 44px;
+            background: var(--white);
+            color: var(--black);
             border: none;
-            border-radius: 50%;
-            font-size: 24px;
+            font-size: 20px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
-        }
-
-        .lightbox__close:hover {
-            background: var(--red-dark);
-            transform: scale(1.1);
         }
 
         .lightbox__caption {
             position: absolute;
             bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 24px;
             color: var(--white);
-            font-size: 14px;
-            background: rgba(0,0,0,0.7);
-            padding: 12px 24px;
-            border-radius: 4px;
+            font-size: 13px;
         }
 
         /* Footer */
         footer {
-            padding: 40px;
-            border-top: 3px solid var(--red);
+            padding: 40px 48px;
+            border-top: 1px solid #eee;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1400px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        footer p {
-            font-size: 14px;
+        footer p, footer a {
+            font-size: 13px;
             color: var(--gray);
-        }
-
-        footer a {
-            color: var(--red);
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
         }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
+        footer a:hover { color: var(--black); }
 
         @media (max-width: 768px) {
             footer {
                 flex-direction: column;
-                gap: 16px;
+                gap: 12px;
                 text-align: center;
                 padding: 30px 24px;
             }
@@ -507,12 +397,8 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
-        <a class="brand" href="#top">
-            <span class="brand__mark">JB</span>
-            <span class="brand__name">Jared Boardman</span>
-        </a>
+        <a class="brand" href="#top">Jared Boardman</a>
         <ul class="nav-links">
             <li><a href="#gardens">Gardens</a></li>
             <li><a href="#rosion">Rosion</a></li>
@@ -523,10 +409,9 @@
         <a class="header-cta" href="mailto:jared@example.com">Contact</a>
     </nav>
 
-    <!-- Hero -->
     <section class="hero" id="top">
         <div class="hero__copy">
-            <p class="eyebrow">Architecture Portfolio / 2025</p>
+            <p class="hero__eyebrow">Architecture Portfolio / 2025</p>
             <h1>Spatial Thinking Through Drawing + Material</h1>
             <p class="hero__lede">Architecture work by Jared Boardman built around site forces, hand process, and full-scale experimentation.</p>
             <div class="hero__actions">
@@ -539,22 +424,20 @@
         </div>
     </section>
 
-    <!-- Project Index -->
     <section class="index-map" id="index-map">
-        <p class="index-map__label">Project Atlas</p>
+        <p class="index-map__label">Project Index</p>
         <div class="index-map__canvas">
             <img src="assets/contents.webp" alt="Portfolio contents">
         </div>
         <div class="index-map__links">
-            <a href="#gardens"><span>01</span> Gardens / Nolita, NYC</a>
-            <a href="#rosion"><span>02</span> Rosion / Charleston</a>
-            <a href="#werkplatz"><span>03</span> WerkPlatz / Gainesville</a>
-            <a href="#automaton"><span>04</span> Automaton / Amelia Island</a>
-            <a href="#meditation"><span>05</span> Meditation / Sketchbook</a>
+            <a href="#gardens">01 — Gardens / Nolita, NYC</a>
+            <a href="#rosion">02 — Rosion / Charleston</a>
+            <a href="#werkplatz">03 — WerkPlatz / Gainesville</a>
+            <a href="#automaton">04 — Automaton / Amelia Island</a>
+            <a href="#meditation">05 — Meditation / Sketchbook</a>
         </div>
     </section>
 
-    <!-- Chapter 1: Gardens -->
     <section class="chapter" id="gardens">
         <aside class="chapter__rail">
             <p class="chapter__number">01</p>
@@ -585,7 +468,6 @@
         </div>
     </section>
 
-    <!-- Chapter 2: Rosion -->
     <section class="chapter" id="rosion">
         <aside class="chapter__rail">
             <p class="chapter__number">02</p>
@@ -611,7 +493,6 @@
         </div>
     </section>
 
-    <!-- Chapter 3: WerkPlatz -->
     <section class="chapter" id="werkplatz">
         <aside class="chapter__rail">
             <p class="chapter__number">03</p>
@@ -637,7 +518,6 @@
         </div>
     </section>
 
-    <!-- Chapter 4: Automaton -->
     <section class="chapter" id="automaton">
         <aside class="chapter__rail">
             <p class="chapter__number">04</p>
@@ -672,7 +552,6 @@
         </div>
     </section>
 
-    <!-- Chapter 5: Meditation -->
     <section class="chapter" id="meditation">
         <aside class="chapter__rail">
             <p class="chapter__number">05</p>
@@ -702,13 +581,11 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>Jared Boardman / Architecture Portfolio 2025</p>
-        <a href="mailto:jared@example.com">Get In Touch</a>
+        <a href="mailto:jared@example.com">Contact</a>
     </footer>
 
-    <!-- Lightbox -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
         <button class="lightbox__close" onclick="closeLightbox(event)">&times;</button>
         <img src="" alt="" id="lightbox-img">
@@ -718,30 +595,23 @@
     <script>
         function openLightbox(src, caption) {
             event.stopPropagation();
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
-            const cap = document.getElementById('lightbox-caption');
-            img.src = src;
-            cap.textContent = caption;
-            lightbox.classList.add('active');
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-caption').textContent = caption;
+            document.getElementById('lightbox').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
         function closeLightbox(event) {
             if (event.target.classList.contains('lightbox') || event.target.classList.contains('lightbox__close')) {
-                const lightbox = document.getElementById('lightbox');
-                lightbox.classList.remove('active');
+                document.getElementById('lightbox').classList.remove('active');
                 document.body.style.overflow = '';
             }
         }
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                const lightbox = document.getElementById('lightbox');
-                if (lightbox.classList.contains('active')) {
-                    lightbox.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
+                document.getElementById('lightbox').classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
     </script>
