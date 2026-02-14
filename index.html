@@ -91,7 +91,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 80px;
             padding: 140px 48px 100px;
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             align-items: center;
         }
@@ -168,6 +168,11 @@
             background: var(--light-gray);
         }
 
+        .index-map__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         .index-map__label {
             font-size: 11px;
             text-transform: uppercase;
@@ -181,8 +186,7 @@
         }
 
         .index-map__canvas {
-            max-width: 1100px;
-            margin: 0 auto 32px;
+            margin-bottom: 32px;
         }
 
         .index-map__canvas img {
@@ -194,8 +198,6 @@
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            max-width: 1100px;
-            margin: 0 auto;
         }
 
         .index-map__links a {
@@ -220,7 +222,7 @@
         /* Chapter Sections */
         .chapter {
             padding: 100px 48px;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 260px 1fr;
@@ -377,7 +379,7 @@
         }
 
         .footer__inner {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -431,16 +433,18 @@
     </section>
 
     <section class="index-map" id="index-map">
-        <p class="index-map__label">Project Index</p>
-        <div class="index-map__canvas">
-            <img src="assets/contents.webp" alt="Portfolio contents">
-        </div>
-        <div class="index-map__links">
-            <a href="#gardens">01 — Gardens / Nolita, NYC</a>
-            <a href="#rosion">02 — Rosion / Charleston</a>
-            <a href="#werkplatz">03 — WerkPlatz / Gainesville</a>
-            <a href="#automaton">04 — Automaton / Amelia Island</a>
-            <a href="#meditation">05 — Meditation / Sketchbook</a>
+        <div class="index-map__inner">
+            <p class="index-map__label">Project Index</p>
+            <div class="index-map__canvas">
+                <img src="assets/contents.webp" alt="Portfolio contents">
+            </div>
+            <div class="index-map__links">
+                <a href="#gardens">01 — Gardens / Nolita, NYC</a>
+                <a href="#rosion">02 — Rosion / Charleston</a>
+                <a href="#werkplatz">03 — WerkPlatz / Gainesville</a>
+                <a href="#automaton">04 — Automaton / Amelia Island</a>
+                <a href="#meditation">05 — Meditation / Sketchbook</a>
+            </div>
         </div>
     </section>
 
