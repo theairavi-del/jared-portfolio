@@ -120,32 +120,30 @@
             .brand__name { display: none; }
         }
 
-        /* Hero Section - BIGGER */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            padding: 140px 60px 100px;
+            max-width: 1400px;
+            margin: 0 auto;
             align-items: center;
-            justify-content: center;
-            padding: 120px 40px 80px;
-            text-align: center;
-            background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+        }
+
+        .hero__copy {
+            max-width: 600px;
         }
 
         .hero__cover {
             width: 100%;
-            max-width: 1200px;
-            margin-bottom: 60px;
         }
 
         .hero__cover img {
             width: 100%;
             border-radius: 12px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        }
-
-        .hero__copy {
-            max-width: 800px;
         }
 
         .eyebrow {
@@ -214,10 +212,17 @@
             color: var(--white);
         }
 
-        @media (max-width: 768px) {
-            .hero { padding: 100px 24px 60px; }
-            .hero__cover { margin-bottom: 40px; }
-            .hero__actions { flex-direction: column; align-items: center; }
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 120px 24px 60px;
+                text-align: center;
+            }
+            .hero__cover { order: -1; }
+            .hero__actions { 
+                flex-direction: column; 
+                align-items: center; 
+            }
             .button { width: 100%; max-width: 300px; }
         }
 
@@ -518,11 +523,8 @@
         <a class="header-cta" href="mailto:jared@example.com">Contact</a>
     </nav>
 
-    <!-- Hero - Bigger, no metrics, no contents -->
+    <!-- Hero -->
     <section class="hero" id="top">
-        <div class="hero__cover">
-            <img src="assets/cover.webp" alt="Jared Boardman Architecture Portfolio 2025">
-        </div>
         <div class="hero__copy">
             <p class="eyebrow">Architecture Portfolio / 2025</p>
             <h1>Spatial Thinking Through Drawing + Material</h1>
@@ -531,6 +533,9 @@
                 <a class="button button--solid" href="#gardens">Enter Portfolio</a>
                 <a class="button button--ghost" href="#index-map">Project Index</a>
             </div>
+        </div>
+        <div class="hero__cover">
+            <img src="assets/cover.webp" alt="Jared Boardman Architecture Portfolio 2025">
         </div>
     </section>
 
