@@ -53,9 +53,11 @@
             align-items: center;
             gap: 10px;
             text-decoration: none;
-            color: var(--red);
-            font-size: 14px;
-            font-weight: 600;
+        }
+
+        .brand img {
+            height: 32px;
+            filter: invert(35%) sepia(95%) saturate(5000%) hue-rotate(340deg) brightness(95%) contrast(90%);
         }
 
         .nav-links {
@@ -441,7 +443,7 @@
 <body>
     <nav>
         <div class="nav__inner">
-            <a class="brand" href="#top">Jared Boardman</a>
+            <a class="brand" href="#top"><img src="assets/logo.jpg" alt="Jared Boardman"></a>
             <ul class="nav-links">
                 <li><a href="#gardens">Gardens</a></li>
                 <li><a href="#rosion">Rosion</a></li>
