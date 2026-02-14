@@ -134,6 +134,10 @@
             color: var(--black);
         }
 
+        .hero h1 .desktop-hide {
+            display: none;
+        }
+
         .hero__lede {
             font-size: 15px;
             color: var(--gray);
@@ -230,9 +234,25 @@
             color: var(--red);
         }
 
+        .mobile-contents-label {
+            display: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--red);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
         @media (max-width: 768px) {
             .index-map { padding: 60px 24px; }
+            .index-map__canvas { display: none; }
+            .mobile-contents-label { display: block; }
             .index-map__links a { width: 100%; }
+            .hero h1 .mobile-hide { display: none; }
+            .hero h1 .desktop-hide { display: inline; }
+            .hero__lede .mobile-hide { display: none; }
+            .hero__lede .desktop-hide { display: inline; }
         }
 
         /* Chapter Sections */
@@ -436,8 +456,8 @@
     <section class="hero" id="top">
         <div class="hero__copy">
             <p class="hero__eyebrow">Architecture Portfolio / 2025</p>
-            <h1>Spatial Thinking Through<br>Drawing + Material</h1>
-            <p class="hero__lede">Architecture work by Jared Boardman built around site<br>forces, hand process, and full-scale experimentation.</p>
+            <h1>Spatial Thinking <span class="mobile-hide">Through<br>Drawing +</span><span class="desktop-hide"><br>Through<br>Drawing</span> Material</h1>
+            <p class="hero__lede">Architecture work by Jared Boardman built around <span class="mobile-hide">site<br>forces</span><span class="desktop-hide">site forces</span>, hand process, and full-scale experimentation.</p>
             <div class="hero__actions">
                 <a class="button button--solid" href="#gardens">Enter Portfolio</a>
                 <a class="button button--ghost" href="#index-map">Project Index</a>
@@ -450,6 +470,7 @@
 
     <section class="index-map" id="index-map">
         <div class="index-map__inner">
+            <p class="mobile-contents-label">Contents</p>
             <div class="index-map__canvas">
                 <img src="assets/contents.webp" alt="Portfolio contents">
             </div>
