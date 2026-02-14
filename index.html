@@ -398,41 +398,16 @@
         footer {
             padding: 48px;
             border-top: 1px solid #eee;
-            background: var(--light-gray);
+            background: var(--white);
+            text-align: center;
         }
 
-        .footer__inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        footer p, footer a {
+        footer p {
             font-size: 13px;
             color: var(--gray);
-            text-decoration: none;
-        }
-
-        footer a {
-            color: var(--gray);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: all 0.2s;
-        }
-
-        footer a:hover {
-            color: var(--red);
-            border-bottom-color: var(--red);
         }
 
         @media (max-width: 768px) {
-            .footer__inner {
-                flex-direction: column;
-                gap: 12px;
-                text-align: center;
-            }
             footer { padding: 30px 24px; }
         }
     </style>
@@ -626,10 +601,7 @@
     </section>
 
     <footer>
-        <div class="footer__inner">
-            <p>Jared Boardman / Architecture Portfolio 2025</p>
-            <a href="mailto:jared@example.com">Contact</a>
-        </div>
+        <p>Jared Boardman / Architecture Portfolio 2025</p>
     </footer>
 
     <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
