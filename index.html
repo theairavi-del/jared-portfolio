@@ -32,14 +32,19 @@
             position: fixed;
             top: 0; left: 0; right: 0;
             padding: 20px 48px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             z-index: 100;
             background: rgba(255, 255, 255, 0.72);
             backdrop-filter: saturate(180%) blur(20px);
             -webkit-backdrop-filter: saturate(180%) blur(20px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .nav__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .brand {
@@ -406,15 +411,17 @@
 </head>
 <body>
     <nav>
-        <a class="brand" href="#top">Jared Boardman</a>
-        <ul class="nav-links">
-            <li><a href="#gardens">Gardens</a></li>
-            <li><a href="#rosion">Rosion</a></li>
-            <li><a href="#werkplatz">WerkPlatz</a></li>
-            <li><a href="#automaton">Automaton</a></li>
-            <li><a href="#meditation">Meditation</a></li>
-        </ul>
-        <a class="header-cta" href="mailto:jared@example.com">Contact</a>
+        <div class="nav__inner">
+            <a class="brand" href="#top">Jared Boardman</a>
+            <ul class="nav-links">
+                <li><a href="#gardens">Gardens</a></li>
+                <li><a href="#rosion">Rosion</a></li>
+                <li><a href="#werkplatz">WerkPlatz</a></li>
+                <li><a href="#automaton">Automaton</a></li>
+                <li><a href="#meditation">Meditation</a></li>
+            </ul>
+            <a class="header-cta" href="mailto:jared@example.com">Contact</a>
+        </div>
     </nav>
 
     <section class="hero" id="top">
